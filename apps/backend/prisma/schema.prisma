@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id              String   @id @default(uuid())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  cryptoAmount    Float
+  cryptoCurrency  String   // ETH, USDC
+  fiatAmount      Float
+  fiatCurrency    String   @default("BRL")
+  exchangeRate    Float
+  
+  status          TransactionStatus @default(PENDING)
+  txHash          String?  @unique
+  
+  // Risk & Audit
+  riskScore       Float    @default(0)
+  auditLog        AuditLog?
+}
+
+model AuditLog {
+  id            String      @id @default(uuid())
+  transactionId String      @unique
+  transaction   Transaction @relation(fields: [transactionId], references: [id])
+  timestamp     DateTime    @default(now())
+  action        String      // "PIX_SENT", "CRYPTO_SOLD"
+  details       String
+}
+
+model Theme {
+  id        String   @id @default(uuid())
+  name      String
+  prompt    String
+  config    Json     // Stores the Tailwind config (colors, radius, etc)
+  createdAt DateTime @default(now())
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  FAILED
+  LIQUIDATED // Crypto sold on exchange
+}

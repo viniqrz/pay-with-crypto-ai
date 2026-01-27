@@ -1,0 +1,27 @@
+{
+  "name": "pay-with-crypto-ai",
+  "version": "1.0.0",
+  "description": "Crypto-to-Pix Bridge with GenAI Theming",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd apps/backend && npm run start:dev",
+    "dev:frontend": "cd apps/frontend && npm run dev",
+    "build": "turbo build",
+    "lint": "turbo lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniqrz/pay-with-crypto-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "turbo": "^2.7.6"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
