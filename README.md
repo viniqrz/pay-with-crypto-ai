@@ -36,9 +36,9 @@ graph TD
         
         subgraph "Modules"
             Auth[Auth Module]
-            Pricing[Pricing Module (AI)]
+            Pricing["Pricing Module (AI)"]
             Payment[Payment Module]
-            Design[Theming Module (GenAI)]
+            Design["Theming Module (GenAI)"]
         end
         
         Ledger[(PostgreSQL)]
