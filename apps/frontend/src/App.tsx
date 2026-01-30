@@ -172,20 +172,20 @@ function PaymentUI() {
             />
           </div>
 
-          <div className="p-12 sm:p-16 pt-20 sm:pt-24">
+          <div className="p-12">
             <AnimatePresence mode="wait">
               {step === "form" && (
                 <form
                   key="form"
                   onSubmit={handleSubmit(handleGetQuote)}
-                  className="space-y-12 flex flex-col items-center justify-center gap-1"
+                  className="space-y-1 flex flex-col items-stretch justify-center"
                 >
                   <div className="space-y-3 my-6 text-center sm:text-left">
                     <h2 className="text-4xl font-black text-white tracking-tight">
                       Payment Settlement
                     </h2>
                     <p className="text-sm font-medium text-slate-400">
-                      Convert crypto to instant BRL via treasury float.
+                      Convert crypto to pay instantly with BRL.
                     </p>
                   </div>
 
@@ -200,7 +200,7 @@ function PaymentUI() {
                         error={errors.amount?.message}
                         className="text-6xl font-black tracking-tighter bg-transparent border-none px-0 h-24 placeholder:text-white/10 focus:shadow-none focus:ring-0 text-right pr-2 !mt-10 shadow-none"
                       />
-                      <span className="absolute bottom-10 left-10 text-sm font-bold text-white/30 pointer-events-none">
+                      <span className="absolute  right-10 text-sm font-bold text-white/30 pointer-events-none">
                         BRL
                       </span>
                     </div>
