@@ -131,6 +131,11 @@ function PaymentUI() {
                 <input
                   value={themePrompt}
                   onChange={(e) => setThemePrompt(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      applyTheme(themePrompt);
+                    }
+                  }}
                   placeholder="AI Theme Engine..."
                   className="glass-input border border-white/10 rounded-full text-xs font-medium px-4 h-9 w-32 sm:w-48 focus:border-indigo-500 outline-none text-white transition-all placeholder:text-white/20"
                 />
