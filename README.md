@@ -76,6 +76,7 @@ graph TD
 ## 🛠 Tech Stack
 
 * **Language**: TypeScript (Monorepo via Turborepo)
+* **Runtime**: **Node.js** (v20+)
 * **Frontend**: React, TailwindCSS, Viem, **Shadcn UI** (Themable components)
 * **Backend**: **NestJS** (Modular Architecture)
 * **AI/ML**:
